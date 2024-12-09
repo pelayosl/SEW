@@ -7,12 +7,12 @@ body { /*Especifidad 001*/
     font-family: "Trebuchet MS", sans-serif;
     color: #595959;
     background-color: #ffffff;
-    font-size: 16px;
+    font-size: 1em;
     margin: 0;
   }
 
 body p{ /*Especifidad 002*/
-  font-size: 16px;
+  font-size: 1em;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -25,12 +25,17 @@ main {
 h2{ /*Especifidad 001*/
   color: #1F575C;
   background-color: transparent;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 
-body h3{ /*Especifidad 002*/
+body h3, h4{ /*Especifidad 002*/
   color: #1F575C;
-  background-color: #ffffff;
+  background-color: transparent;
+  font-size: 1.2em;
+}
+
+body h5{
+  font-size: 1em;
 }
 
 main a:link { /* Especificidad: 012 */
@@ -69,7 +74,7 @@ header + p { /* Especificidad: 002 */
 }
 
 @media screen and (max-width: 600px) {
-  p:first-of-type{ /* Especifidad 012 */
+  header + p{ /* Especifidad 012 */
     display: none;
   }
 }
@@ -120,20 +125,71 @@ th, td { /* Especifidad 001 */
   padding: 20px;  
   text-align: center;
   overflow-wrap: break-word;   
-  color: white; 
+  
 }
 
 th { /* Especifidad 001 */
   letter-spacing: 2px;
   background-color: #22625F;
+  color: white;
 }
 
 td { /* Especifidad 001 */
-  background-color: #0f2d2b;
+  background-color: #f0f0f0;
+  color: #0f2d2b;
 }
 
+img {
+  width: 50%;
+}
 
+h3 + section > div {
+  width: 70%;
+  height: 30vw; 
+}
 
+svg {
+  width: 100%;
+}
+
+button {
+  background-image: linear-gradient(#389a95, #22625F);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-size: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
+
+button:hover {
+  background-image: linear-gradient(-180deg, #22625F 0%, #22625F 100%);
+}
+
+h5 + section, h5 + section + section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+article>img{
+  width: 15vw;
+}
+section:nth-of-type(2)>article>img{
+  width: 40vh;
+  height: 40vh;
+}
+
+button+p{
+  color: red;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+}
 
 
 

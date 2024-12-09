@@ -3,9 +3,9 @@
 section {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem; /*1rem*/
     justify-content: center;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 
@@ -29,7 +29,6 @@ article {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
     box-sizing: border-box;
     transform-style: preserve-3d;
     transition: transform .5s;
@@ -39,11 +38,42 @@ article {
 article[data-state="flip"],
 article[data-state="revealed"] {
     transform: rotateY(180deg);
+    border-width: 0.5em;
+}
+
+article[data-element="RedBull"][data-state="flip"],
+article[data-element="RedBull"][data-state="revealed"] {
+    border-color: #0b099e; /* Red for RedBull */
+}
+
+article[data-element="McLaren"][data-state="flip"],
+article[data-element="McLaren"][data-state="revealed"] {
+    border-color: #f08400; /* Orange for McLaren */
+}
+
+article[data-element="Alpine"][data-state="flip"],
+article[data-element="Alpine"][data-state="revealed"] {
+    border-color: #cf06c5; /* Blue for Alpine */
+}
+
+article[data-element="AstonMartin"][data-state="flip"],
+article[data-element="AstonMartin"][data-state="revealed"] {
+    border-color: #00d463; /* Green for Aston Martin */
+}
+
+article[data-element="Ferrari"][data-state="flip"],
+article[data-element="Ferrari"][data-state="revealed"] {
+    border-color: #ff0000; /* Red for Ferrari */
+}
+
+article[data-element="Mercedes"][data-state="flip"],
+article[data-element="Mercedes"][data-state="revealed"] {
+    border-color: #286b71; /* Cyan for Mercedes */
 }
 
 article img {
-    width: 70%;
-    height: 70%;
+    width: 90%; /* 70, 70*/
+    height: 90%;
     transform: rotateY(180deg);
     position: absolute;
 }
@@ -57,6 +87,7 @@ article h3 {
 @media screen and (max-width: 480px) {
     article h3 {
         font-size: 0.6rem;
+        text-align: center;
     }
 }
 
@@ -64,3 +95,11 @@ article img,
 article h3 {
     backface-visibility: hidden;
 }
+
+button+p {
+    font-size: 1.2rem;
+    text-align: left;
+    color: #595959;
+    border: 0.2rem solid #595959;
+    padding: 1em;
+  }

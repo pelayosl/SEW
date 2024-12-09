@@ -11,7 +11,7 @@ class Semaforo {
     }
 
     getRandomInt(min, max) {
-        return Math.random() * (max - min) + min;
+        return Math.round(Math.random() * (max - min) + min);
     }
 
     createStructure(){
@@ -19,10 +19,10 @@ class Semaforo {
         const heading = document.createElement('h2');
         heading.textContent = 'Semáforo';
         main.appendChild(heading);
-
+        const section = document.createElement('section');
         for(let i = 0; i < this.lights; i++){
             const div = document.createElement('div');
-            main.appendChild(div);
+            section.appendChild(div);
             
         }
         const arrancar = document.createElement('button');
@@ -35,14 +35,15 @@ class Semaforo {
         parar.onclick = () => {
             this.stopReaction(parar, arrancar);
         }
-        main.appendChild(arrancar);
-        main.appendChild(parar);
+        section.appendChild(arrancar);
+        section.appendChild(parar);
+        main.appendChild(section);
         
     }
 
     initSequence(arrancar, parar) {
-        const main = document.querySelector('main');
-        main.classList.add('load');
+        const section = document.querySelector('section');
+        section.classList.add('load');
         arrancar.disabled = true;
         parar.disabled = false;
         setTimeout(() => {
@@ -52,22 +53,51 @@ class Semaforo {
     }
 
     endSequence() {
-        const main = document.querySelector('main');
-        main.classList.remove('load');
-        main.classList.add('unload');
+        const section = document.querySelector('section');
+        section.classList.remove('load');
+        section.classList.add('unload');
     }
 
     stopReaction(parar, arrancar) {
         
         const main = document.querySelector('main');
         this.clic_moment = new Date();
-        let millis = this.clic_moment.getTime() - this.unload_moment.getTime();
-        const p = document.createElement('p');
-        p.textContent = `Tiempo de reacción: ${millis} milisegundos!`;
-        main.appendChild(p);
+        this.millis = this.clic_moment.getTime() - this.unload_moment.getTime();
+        
         main.classList.remove('unload');
         parar.disabled = true;
         arrancar.disabled = false;
+        this.createRecordForm();
+    }
+
+    // Práctica PHP
+    createRecordForm(){
+        var form = document.querySelector('form');
+        if(!form){
+            form = document.createElement('form');
+        }
+        $("main").append(form);
+
+        $("form").append('<h3>Resultado</h3>');
+        $("form").attr("method", "post");
+        $("form").attr("action", "#");
+        $("form").attr("name", "resultado");
+        $("form").append(`<p>
+            <label for='nombre'>Nombre:</label>
+            <input type='text' name='nombre'/>
+        </p>`);
+        $("form").append(`<p>
+            <label for='apellidos'>Apellidos:</label>
+            <input type='text' name='apellidos'/>
+        </p>`);
+        $("form").append(`<p>
+            <label for='difficulty'>Dificultad:</label>
+            <input type='text' name='difficulty' readonly='true' value='${this.difficulty}'/>
+        </p>`);
+        $("form").append(`<p>
+            <label for='tiempo_reaccion'>Tiempo de reacción:</label>
+            <input type='text' name='tiempo_reaccion' readonly='true' value='${this.millis}'/>
+        </p>`);
     }
 }
 

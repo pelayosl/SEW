@@ -158,12 +158,12 @@ class Memoria {
 
     comoJugar(){
         const main = document.getElementsByTagName('main')[0];
-        let pExists = main.querySelector('pre');
+        let pExists = main.querySelector('p');
         if(pExists){
             main.removeChild(pExists);
             return;
         }
-        let p = document.createElement('pre');
+        let p = document.createElement('p');
         p.textContent = `\tHaz click en cada carta para desvelarla y encontrar parejas.
         Si fallas, ambas cartas se volverán a ocultar.
         Encuentra todas las parejas para terminar el juego.`;

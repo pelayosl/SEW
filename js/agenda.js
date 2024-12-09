@@ -2,6 +2,7 @@ class Agenda{
     constructor(){
         this.date = new Date();
         this.url = `https://api.jolpi.ca/ergast/f1/2024/races/?format=json`;
+            
     }
 
     informacionCarreras(){

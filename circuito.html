@@ -12,6 +12,12 @@
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css" />
 	<link rel=icon href=multimedia/imagenes/favicon.ico sizes="16x16" type="image/vnd.microsoft.icon">
+	<script 
+		src="https://code.jquery.com/jquery-3.7.1.min.js" 
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+		crossorigin="anonymous">
+	</script>
+	<script src="js/circuito.js"></script>
 </head>
 
 <body>
@@ -32,7 +38,8 @@
 	<p>Estás en: <a href="index.html">Inicio</a> | Circuito</p>
 	<main>
 		<h2>Circuito</h2>
-		<p>En desarrollo</p>
+		<script>circuito = new Circuito();</script>
+		<p><input type="file" onchange="circuito.readInputFile(this.files);"></p>
 	</main>
 </body>
 </html>

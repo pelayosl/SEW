@@ -13,7 +13,7 @@ class Fondo {
                         format: "json"
                     })
                 .done(function(data) {
-                        var image = data.items[2].media.m.replace("_m.jpg", "_b.jpg");
+                        var image = data.items[5].media.m.replace("_m.jpg", "_b.jpg");
                         $("body").css({
                             "background-image": `url(${image})`,
                             "background-size": "cover",          

@@ -5,7 +5,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.uniovi.es circuito.xsd">  
     <circuito>
-        <nombre>Jeddah</nombre>
+        <nombre>Jeddah Corniche</nombre>
 
         <dimensiones longitud_circuito="6.175" anchura="12"></dimensiones>
 
@@ -29,7 +29,7 @@
         </fotos>
 
         <videos>
-            <video></video>
+            <video>F1Desktop/multimedia/videos/george-russell-victoria-sao-paulo.mp4</video>
         </videos>
 
         <coordenadas_inicio>
