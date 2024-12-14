@@ -11,6 +11,8 @@ class Api{
         this.selectedDifficulty = undefined;
         this.guessCounter = 0;
         this.start = false;
+        this.nextRound = this.nextRound.bind(this); // Ensure other methods are bound if necessary
+        this.handleDrop = this.handleDrop.bind(this); 
         this.pilotos = [
             { piloto: "Hamilton", equipo: "Mercedes"},
             { piloto: "Russell", equipo: "Mercedes"},
@@ -40,19 +42,26 @@ class Api{
         this.displayRecords();
         this.iniciarJuego();
         this.startTimer();
+        
     }
 
     displayRecords() {
+        var facil = localStorage.getItem('guess-counter-facil');
+        var medio = localStorage.getItem('guess-counter-medio');
+        var dificil = localStorage.getItem('guess-counter-dificil');
+
         $("main").append(`<h3>Récords personales</h3>`);
-        $("main").append(`<p>Fácil: ${localStorage.getItem('guess-counter-facil')}</p>`);
-        $("main").append(`<p>Medio: ${localStorage.getItem('guess-counter-medio')}</p>`);
-        $("main").append(`<p>Difícil: ${localStorage.getItem('guess-counter-dificil')}</p>`);
+        facil == null ?  $("main").append(`<p>Fácil: no jugado!</p>`) :  $("main").append(`<p>Fácil: ${facil}</p>`);
+        medio == null ?  $("main").append(`<p>Medio: no jugado!</p>`) :  $("main").append(`<p>Medio: ${medio}</p>`);
+        dificil == null ?  $("main").append(`<p>Difícil: no jugado!</p>`) :  $("main").append(`<p>Difícil: ${dificil}</p>`);
+       
     }
 
     setRecords(){
         if(this.guessCounter > localStorage.getItem(`guess-counter-${this.selectedDifficultyName}`))
             localStorage.setItem(`guess-counter-${this.selectedDifficultyName}`, this.guessCounter);
         
+        $("main").append(`<h3>¡Has jugado en modo ${this.selectedDifficultyName}!</h3>`)
         $("main").append(`<h3>Número de aciertos esta ronda: ${this.guessCounter}</h3>`)
     }
 
@@ -124,33 +133,89 @@ class Api{
     }
 
     crearListeners(){
-        var pilotos = $("section:first-of-type article");
-        var equipo = $("section:nth-of-type(2) article");
+        const pilotoArticles = document.querySelectorAll("section:first-of-type article");
+        const equipoArticles = document.querySelectorAll("section:nth-of-type(2) article");
 
-        pilotos.on("dragstart", function (event) {
-            event.originalEvent.dataTransfer.setData(
-                "text/plain",
-                JSON.stringify({
-                    piloto: $(this).data("piloto"),
-                    equipo: $(this).data("equipo"),
-                })
-            );
+        let draggedPiloto = null;
+        let dragData = null;
+
+        // Para escritorio
+        pilotoArticles.forEach(piloto => {
+            piloto.setAttribute('draggable', 'true');
+
+            piloto.addEventListener('dragstart', (event) => {
+                draggedPiloto = piloto;
+                dragData = {
+                    piloto: piloto.getAttribute('data-piloto'),
+                    equipo: piloto.getAttribute('data-equipo')
+                };
+                event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+            });
         });
 
-        equipo.on("dragover", function (event) {
-            event.preventDefault();
+        equipoArticles.forEach(equipo => {
+            equipo.addEventListener('dragover', (event) => {
+                event.preventDefault();
+            });
+
+            equipo.addEventListener('drop', (event) => {
+                event.preventDefault();
+                this.handleDrop(event, equipo, dragData);
+            });
         });
 
-        equipo.on("drop", function (event) {
-            event.preventDefault();
+        // Para dispositivos móbiles
+        pilotoArticles.forEach(piloto => {
+            var startX, startY, isDragging = false;
 
-            var data = JSON.parse(event.originalEvent.dataTransfer.getData("text/plain"));
-            var nombreEquipo = $(event.target).closest('article').data("equipo");
+            piloto.addEventListener('touchstart', (event) => {
+                event.preventDefault();
 
-            if (data.equipo === nombreEquipo && this.minutes < 1) {
+                const touch = event.touches[0];
+                startX = touch.clientX - piloto.offsetLeft;
+                startY = touch.clientY - piloto.offsetTop;
+
+                isDragging = true;
+                draggedPiloto = piloto;
+                dragData = {
+                    piloto: piloto.getAttribute('data-piloto'),
+                    equipo: piloto.getAttribute('data-equipo')
+                };
+
+            });
+
+            piloto.addEventListener('touchend', (event) => {
+                event.preventDefault();
+
+                isDragging = false;
+
+                const touch = event.changedTouches[0];
+                const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+                const teamTarget = dropTarget.closest('section:nth-of-type(2) article');
+
+                if (teamTarget) {
+                    this.handleDrop(event, teamTarget, dragData);
+                }
+            });
+        });
+
+        document.addEventListener('touchmove', (event) => {
+            if (event.target.closest('article')) {
+                event.preventDefault();
+            }
+        });
+    }
+
+    handleDrop(event, targetTeam, dragData) {
+        const data = event.dataTransfer
+                ? JSON.parse(event.dataTransfer.getData('text/plain'))
+                : dragData;
+
+            const teamData = targetTeam.getAttribute('data-equipo');
+
+            if (data.equipo === teamData && this.minutes < 1) {
                 this.nextRound();
             }
-        }.bind(this));
     }
 
     nextRound(){

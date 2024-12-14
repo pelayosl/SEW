@@ -6,32 +6,33 @@
 body { /*Especifidad 001*/
     font-family: "Trebuchet MS", sans-serif;
     color: #595959;
-    background-color: #ffffff;
+    background-color: transparent;
     font-size: 1em;
     margin: 0;
   }
 
 body p{ /*Especifidad 002*/
   font-size: 1em;
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
-main {
+main, aside {
   margin-left: 5px;
   margin-right: 5px;
 }
 
 h2{ /*Especifidad 001*/
   color: #1F575C;
-  background-color: transparent;
   font-size: 1.5em;
 }
 
-body h3, h4{ /*Especifidad 002*/
+body h3{ /*Especifidad 002*/
   color: #1F575C;
-  background-color: transparent;
   font-size: 1.2em;
+}
+
+body h4 {
+  color: #113033;
+  font-size: 1.1em;
 }
 
 body h5{
@@ -66,11 +67,11 @@ main a:active { /* Especificidad: 012 */
  }
 
 header + p { /* Especificidad: 002 */
-  font-size: 12px;
+  font-size: 0.8rem;
   color: #3a3a3a;
   font-style: italic;
   background-color: #ffed87;
-  padding: 4px;
+  padding: 0.2rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -177,6 +178,7 @@ h5 + section, h5 + section + section{
 }
 
 article>img{
+  touch-action: none;
   width: 15vw;
 }
 section:nth-of-type(2)>article>img{
@@ -191,6 +193,65 @@ button+p{
   text-align: center;
 }
 
+h3 + h4 + article,h3 + h4 + article>article {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 100vh;
+  position: relative;
+  overflow: hidden; /* <===  */
+  border-radius: 1em;
+}
 
+h3 + h4 + article>article h3 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+}
+
+h3 + h4 + article>article>img {
+  width: 100%;
+  max-width: 100vh;
+  height: 60vh;
+  position: absolute;
+  transition: all 0.5s;
+  object-fit: cover;
+  border-radius: 0.5em;
+}
+
+h3 + h4 + article>article>button {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  padding: 0.5em;
+  border: none;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+}
+h3 + h4 + article>article>button:active {
+  transform: scale(1.1);
+}
+
+h3 + h4 + article>article>button:nth-of-type(2) {
+  top: 50%;
+  left: 2%;
+}
+
+h3 + h4 + article>article>button:nth-of-type(1) {
+  top: 50%;
+  right: 2%;
+}
 
 

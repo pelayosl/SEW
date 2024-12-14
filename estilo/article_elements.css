@@ -26,6 +26,7 @@ article {
 
 article:hover {
     box-shadow: 0.5em 0.5em #9c9c9c;
+    transform: scale(1.009);
 }
 
 article h4 {

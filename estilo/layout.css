@@ -2,7 +2,7 @@
 
 header {
   background-color: #205B58;
-  padding: 10px;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap; /* Para cuando no haya más espacio */
   justify-content: space-between;
@@ -18,7 +18,7 @@ header a { /*Especifidad 002*/
 h1 { /*Especifidad 001*/
   color: #ffffff;
  /* background-color: #22625F lo hereda de header */
-  font-size: 32px;
+  font-size: 2rem;
 } 
 
 h1 a { /*Especifidad 002*/
@@ -40,6 +40,10 @@ nav a { /*Especifidad 002*/
 
 nav a.active { /* Especifidad 012 */
   color: #f8ff71
+}
+
+nav a:hover {
+  transform: scale(1.15);
 }
 
 

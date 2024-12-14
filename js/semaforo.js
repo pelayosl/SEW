@@ -19,10 +19,9 @@ class Semaforo {
         const heading = document.createElement('h2');
         heading.textContent = 'Semáforo';
         main.appendChild(heading);
-        const section = document.createElement('section');
         for(let i = 0; i < this.lights; i++){
             const div = document.createElement('div');
-            section.appendChild(div);
+            main.appendChild(div);
             
         }
         const arrancar = document.createElement('button');
@@ -35,15 +34,14 @@ class Semaforo {
         parar.onclick = () => {
             this.stopReaction(parar, arrancar);
         }
-        section.appendChild(arrancar);
-        section.appendChild(parar);
-        main.appendChild(section);
+        main.appendChild(arrancar);
+        main.appendChild(parar);
         
     }
 
     initSequence(arrancar, parar) {
-        const section = document.querySelector('section');
-        section.classList.add('load');
+        const main = document.querySelector('main');
+        main.classList.add('load');
         arrancar.disabled = true;
         parar.disabled = false;
         setTimeout(() => {
@@ -53,9 +51,9 @@ class Semaforo {
     }
 
     endSequence() {
-        const section = document.querySelector('section');
-        section.classList.remove('load');
-        section.classList.add('unload');
+        const main = document.querySelector('main');
+        main.classList.remove('load');
+        main.classList.add('unload');
     }
 
     stopReaction(parar, arrancar) {
@@ -76,7 +74,7 @@ class Semaforo {
         if(!form){
             form = document.createElement('form');
         }
-        $("main").append(form);
+        $("aside").append(form);
 
         $("form").append('<h3>Resultado</h3>');
         $("form").attr("method", "post");
@@ -98,6 +96,8 @@ class Semaforo {
             <label for='tiempo_reaccion'>Tiempo de reacción:</label>
             <input type='text' name='tiempo_reaccion' readonly='true' value='${this.millis}'/>
         </p>`);
+        $("form").append(`<input type='submit'  value='Enviar'/>`)
+ 
     }
 }
 
