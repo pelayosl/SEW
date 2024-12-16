@@ -5,25 +5,30 @@ class Fondo {
     }
 
     getImage(){
-        var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        var flickrAPI = "https://www.flickr.com/services/rest/?";
             $.getJSON(flickrAPI, 
                     {
-                        tags: "Mercedes AMG Petronas",
-                        tagmode: "any",
-                        format: "json"
+                        method: "flickr.photos.search",
+                        api_key:"d1bf36e5e293db8730851ba07d0cd7ce",
+                        text: "Jeddah Corniche Circuit",
+                        per_page:10,
+                        page:1,
+                        tags: "Saudi Arabia",
+                        format: "json",
+                        nojsoncallback:1
                     })
                 .done(function(data) {
-                        var image = data.items[5].media.m.replace("_m.jpg", "_b.jpg");
-                        $("body").css({
-                            "background-image": `url(${image})`,
-                            "background-size": "cover",          
-                            "background-position": "center",    
-                            "background-repeat": "no-repeat",  
-                        });
+                        var image = data.photos.photo[0];
+                        
+                        var url = `https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_b.jpg`
+                        $("html").css("height", "100%")
+                        $("body")
+                            .css("background-image", `url('${url}')`)
+                            .css("background-position","center")
+                            .css("background-repeat","no-repeat")
+                            .css("background-size","cover")
                        
             });
-        
-        
     }
 
 }
