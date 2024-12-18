@@ -11,6 +11,7 @@
 	<title>F1Desktop: Juegos</title>
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+	<link rel="stylesheet" type="text/css" href="estilo/api.css" />
 	<link rel=icon href=multimedia/imagenes/favicon.ico sizes="16x16" type="image/vnd.microsoft.icon">
 	<script 
 		src="https://code.jquery.com/jquery-3.7.1.min.js" 
@@ -35,7 +36,16 @@
 	</header>
 	<p>Estás en: <a href="index.html">Inicio</a> | <a href="juegos.html">Juegos</a> | Concurso</p>
 	<main>
-		<h2>Concurso F1</h2>
+		<section>
+				<h2>Menú de Juegos</h2>
+            <nav>
+                <a href="memoria.html" title="Accede a juego de memoria">Juego de memoria</a>
+				<a href="semaforo.php" title="Accede a juego del semáforo">Juego del semáforo</a>
+				<a href="api.html" title="Accede a juego de pilotos de F1">Juego de pilotos</a>
+				<a href="php/ranking.php" title="Accede al ranking de pilotos de F1">Ranking de pilotos</a>
+            </nav>
+        </section>
+		<h3>Concurso F1</h3>
 		<ul>
 			<li>Este juego consiste en unir a uno de los pilotos con su equipo correspondiente.</li>
 			<li>El objetivo es conseguir el mayor número de aciertos antes de que el contador llegue al minuto.</li> 
@@ -44,9 +54,8 @@
 		</ul>
 		<button onclick = "api.initializeWebWorker()">Empezar</button>
 		<p></p>
-		<h5>Arrastra al piloto adecuado con su equipo!</h5>
-		<section></section>
-		<section></section>
+		<section><h5>Pilotos</h5></section>
+		<section><h5>Equipo</h5></section>
 	</main>
 	<script src="js/api.js"></script>
 </body>

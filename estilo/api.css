@@ -1,0 +1,40 @@
+main nav a:nth-of-type(3){ /* Especifidad 013 */
+  /* Hereda el background-color del body de main nav a en layout.css */
+    color: #ffed87;
+    font-weight: bold;
+}
+
+/*Especifidad 011*/ /*Especifidad 011*/
+section:nth-of-type(2), section:nth-of-type(3){
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+section > h5, /* Especifidad 002 */
+section + section > h5{ /* Especifidad 003 */
+    width: 100%;
+    margin-bottom: 0;
+}
+article>img{ /*Especifidad 002*/
+   touch-action: none;
+  }
+@media screen and (max-width: 480px) {
+   article>img{ /*Especifidad 002*/
+    /* ADVERTENCIA: Redefinición de width
+      Para poder visualizar algo mejor las imágenes
+      en dispositivos más pequeños */
+     width: 15vw;
+  }
+}
+section:nth-of-type(3)>article>img{ /*Especifidad 013*/
+  width: 40vh;
+  height: 40vh;
+}
+
+h5, /* Especifidad 001 */
+h6{/* Especifidad 001 */
+  font-size: 0.7em;
+}
+  

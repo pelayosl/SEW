@@ -44,18 +44,17 @@
 		<form name="noticia">
 
 			<p><label for="titular">Titular:</label></p>
-			<textarea name="titular" placeHolder="Titular de la noticia"></textarea></p>
+			<textarea id="titular" name="titular" placeHolder="Titular de la noticia"></textarea>
 			
 			<p><label for="entradilla">Entradilla:</label></p>
-			<textarea name="entradilla" placeHolder="Entradilla de la noticia"></textarea></p>
+			<textarea id="entradilla" name="entradilla" placeHolder="Entradilla de la noticia"></textarea>
 
 			<p><label for="autor">Autor:</label>
-				<input type="text" name="autor" placeHolder="Autor de la noticia" required /></p>
+				<input id="autor" type="text" name="autor" placeHolder="Autor de la noticia" required />
 			</p>
 		</form>
 		<button onclick = "handleFileInput(this)">Añadir noticia</button>
-		<h3>Noticias añadidas</h3>
-		<section></section>
+		<section><h3>Noticias añadidas</h3></section>
 	</main>
 </body>
 </html>

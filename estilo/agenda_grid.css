@@ -1,14 +1,18 @@
-section {
+section { /* Especifidad 001 */
     width: 90vw;
-    margin: 20px auto;
+    margin: 1.25rem auto;
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr;
     gap: 1vw;
     justify-items: center;
 }
 
+section h3{ /* Especifidad 002 */
+    grid-column: 1 / -1;
+}
 
-article {
+
+article { /* Especifidad 001 */
     background-color: #f3f3f3;
     border: 0.2em solid #1F575C;
     color: #171717;
@@ -19,29 +23,41 @@ article {
     border-radius: 2em;
 }
 
-article:hover {
+article:hover { /* Especifidad 011 */
     transform: scale(1.05);
 }
 
-article h4 {
+article h4 { /* Especifidad 002 */
     font-size: 1.5em;
 }
 
 @media (max-width: 1024px) {
-    section {
-        grid-template-columns: 1fr 1fr 1fr; /* Reduce to 3 columns */
+    section { /* Especifidad 001 */
+        grid-template-columns: 1fr 1fr 1fr;
+        /* ADVERTENCIA: Redefinición de grid-template-columns
+           Esto es para modificar como se representan los sections
+           dependiendo de la pantalla
+        */
     }
 }
 
 @media (max-width: 768px) {
-    section {
-        grid-template-columns: 1fr 1fr; /* Reduce to 2 columns */
+    section { /* Especifidad 001 */
+        grid-template-columns: 1fr 1fr;
+        /* ADVERTENCIA: Redefinición de grid-template-columns
+           Esto es para modificar como se representan los sections
+           dependiendo de la pantalla
+        */
     }
 }
 
 @media (max-width: 480px) {
-    section {
-        grid-template-columns: 1fr; /* Reduce to 1 column */
+    section { /* Especifidad 001 */
+        grid-template-columns: 1fr;
+        /* ADVERTENCIA: Redefinición de grid-template-columns
+           Esto es para modificar como se representan los sections
+           dependiendo de la pantalla
+        */
     }
 }
 

@@ -22,7 +22,7 @@ class Agenda{
             success: function(datos){
                 $("pre").text(JSON.stringify(datos, null, 2));
                 const raceDate = new Date();
-                let stringDatos = `<h3>Carreras temporada ` + raceDate.getFullYear() + ` </h3><section>`;
+                let stringDatos =`<section>` + `<h3>Carreras temporada ${raceDate.getFullYear()}</h3>`;
 
                 const races = datos.MRData.RaceTable.Races;
 

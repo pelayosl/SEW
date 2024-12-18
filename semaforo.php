@@ -21,7 +21,7 @@ class Record {
 		if (count($_POST)>0) {
 			$nombre = $_POST['nombre'];
             $apellidos = $_POST['apellidos'];
-            $this->nivel = $_POST['difficulty'];
+            $this->nivel = $this->nivel = $_POST["difficulty"];
             $tiempo = $_POST['tiempo_reaccion'];
 
 			// comprueba la conexion
@@ -38,7 +38,7 @@ class Record {
 		}
 	}
 	public function saveRecord() {
-		if ($this->nivel){			
+		if ($this->nivel != null){			
 			
 			$stmt_top10 = $this->db->prepare("SELECT nombre, apellidos, tiempo 
                                     FROM registro 
@@ -105,6 +105,15 @@ $record = new Record();
 		</nav>
 	</header>
     <p>Estás en: <a href="index.html">Inicio</a> | <a href="juegos.html">Juegos</a> | Semáforo</p>
+	<section>
+			<h2>Menú de Juegos</h2>
+            <nav>
+                <a href="memoria.html" title="Accede a juego de memoria">Juego de memoria</a>
+				<a href="semaforo.php" title="Accede a juego del semáforo">Juego del semáforo</a>
+				<a href="api.html" title="Accede a juego de pilotos de F1">Juego de pilotos</a>
+				<a href="php/ranking.php" title="Accede al ranking de pilotos de F1">Ranking de pilotos</a>
+            </nav>
+        </section>
 	<main>
 		
 	</main>

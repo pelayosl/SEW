@@ -102,16 +102,13 @@ $moneda = new Moneda("EUR", "SAR");
 	<main>
 		<h2>Viajes</h2>
 		
-		
-		
 		<h3>Carrusel de imágenes</h3>
-		<h4>Imágenes de Arabia Saudita</h4>
+		<p>Utiliza las flechas direccionales para cambiar la imagen</p>
 		<article>
-		<article>
+			<h5>Imágenes de Arabia Saudita</h5>
 			<?php $carrusel->displayImages(); ?>
 			<button> &gt; </button>
 			<button> &lt; </button>
-		</article>
 		</article>
 		<h3>Conversión del Euro al Riyal saudí </h3>
 		<?php $moneda->convert(); ?>

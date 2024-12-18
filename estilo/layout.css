@@ -1,10 +1,10 @@
 /*Pelayo Sierra Lobo, UO294217*/
 
-header {
+header { /* Especifidad 001 */
   background-color: #205B58;
   padding: 1rem;
   display: flex;
-  flex-wrap: wrap; /* Para cuando no haya más espacio */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -17,7 +17,7 @@ h1 { /*Especifidad 001*/
 
 h1 a, nav a { /*Especifidad 002*/
   color: #ffffff;
-  /* background-color: #22625F Lo hereda de h1*/
+  /* background-color: #22625F Lo hereda de header*/
   text-decoration: none;
 }
 
@@ -36,6 +36,34 @@ nav a:hover { /* Especifidad 012 */
   transform: scale(1.15);
 }
 
+
+main nav a,/* Especifidad 003 */
+section nav a, /* Especifidad 003 */
+main nav a:visited, /* Especifidad 013 */
+section nav a:visited /* Especifidad 013 */
+{
+  flex-wrap: nowrap;
+  margin: 1rem;
+  background-color: #205B58;
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+  background-image: linear-gradient(#389a95, #22625F);
+  border-radius: .5rem;
+}
+
+/* Especifidad 013 *//* Especifidad 013 */
+main nav a:hover, section nav a:hover {
+  background-image: linear-gradient(-180deg, #22625F 0%, #22625F 100%);
+  transform: scale(1.01);
+}
+
+@media screen and (max-width: 781px) {
+  /* Especifidad 002 */
+  main nav, section nav{ /* Especifidad 002 */
+    flex-direction: column;
+  }
+}
 
 
 

@@ -40,7 +40,7 @@ CREATE TABLE `carreras` (
 
 INSERT INTO `carreras` (`id_carrera`, `nombre`, `fecha`, `id_circuito`) VALUES
 (1, 'Gran Premio de Mónaco', '2024-05-26', 1),
-(2, 'Gran Premio de Italia', '2024-09-01', 2),
+(2, 'Gran Premio de Italia', '2023-09-01', 2),
 (3, 'Gran Premio de Gran Bretaña', '2024-07-07', 3),
 (4, 'Gran Premio de España', '2024-06-23', 4),
 (5, 'Gran Premio de Canadá', '2024-06-07', 5);
@@ -78,7 +78,6 @@ INSERT INTO `circuitos` (`id_circuito`, `nombre`, `pais`, `longitud`) VALUES
 CREATE TABLE `clasificaciones` (
   `id_clasificacion` int(11) NOT NULL,
   `id_piloto` int(11) NOT NULL,
-  `temporada` int(11) NOT NULL,
   `puntos_totales` int(11) NOT NULL,
   `posicion_global` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

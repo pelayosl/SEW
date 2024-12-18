@@ -86,6 +86,11 @@ class Api{
 
     agregarPilotosYEquipos(){
 
+        // IMPORTANTE
+        // En este ejercicio tuve que utilizar los atributos data 
+        // para poder relacionar a los pilotos con los equipos mediante
+        // la API drag and drop
+
         // Asegurar que hay un piloto del equipo seleccionado
         var pilotosDelEquipo = this.pilotos.filter(pilot => pilot.equipo === this.equipoSeleccionado);
         var rand = this.getRandomInt(0, pilotosDelEquipo.length);
@@ -113,28 +118,35 @@ class Api{
 
         this.pilotosSeleccionados.forEach((equipo, piloto)=> {
             var article = document.createElement("article");
+            var heading = document.createElement("h6");
+            heading.textContent = piloto;
             article.setAttribute("draggable", "true");
             article.setAttribute("data-piloto", piloto);
             article.setAttribute("data-equipo", equipo);
             var img = document.createElement("img");
             img.setAttribute("src", `multimedia/imagenes/${piloto.toLowerCase()}.png`);
             img.setAttribute("alt", `Imagen de ${piloto}`);
+            article.appendChild(heading);
             article.appendChild(img);
-            $("section:first-of-type").append(article);
+            $("section:nth-of-type(2)").append(article);
         })
 
         var articleEquipo = document.createElement("article");
         articleEquipo.setAttribute("data-equipo", this.equipoSeleccionado);
+        var headingEquipo = document.createElement("h6");
+        headingEquipo.textContent = this.equipoSeleccionado;
+        articleEquipo.setAttribute("draggable", "true");
         var img = document.createElement("img");
         img.setAttribute("src", `multimedia/imagenes/${this.equipoSeleccionado.toLowerCase()}.svg`); 
         img.setAttribute("alt", `Imagen de ${this.equipoSeleccionado}`);
+        articleEquipo.appendChild(headingEquipo);
         articleEquipo.appendChild(img);
-        $("section:nth-of-type(2)").append(articleEquipo);
+        $("section:nth-of-type(3)").append(articleEquipo);
     }
 
     crearListeners(){
-        const pilotoArticles = document.querySelectorAll("section:first-of-type article");
-        const equipoArticles = document.querySelectorAll("section:nth-of-type(2) article");
+        const pilotoArticles = document.querySelectorAll("section:nth-of-type(2) article");
+        const equipoArticles = document.querySelectorAll("section:nth-of-type(3) article");
 
         let draggedPiloto = null;
         let dragData = null;
@@ -182,7 +194,9 @@ class Api{
                     equipo: piloto.getAttribute('data-equipo')
                 };
 
-            });
+            }, { passive: false }); // esto es debido a que si no lo ponía, aunque el funcionamiento
+            // de la aplicación fuese correcto, aparecían errores al intentar arrastrar
+            // pilotos mientras no estuviera el contador activo
 
             piloto.addEventListener('touchend', (event) => {
                 event.preventDefault();
@@ -191,19 +205,19 @@ class Api{
 
                 const touch = event.changedTouches[0];
                 const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-                const teamTarget = dropTarget.closest('section:nth-of-type(2) article');
+                const teamTarget = dropTarget.closest('section:nth-of-type(3) article');
 
                 if (teamTarget) {
                     this.handleDrop(event, teamTarget, dragData);
                 }
-            });
+            }, { passive: false });
         });
 
         document.addEventListener('touchmove', (event) => {
             if (event.target.closest('article')) {
                 event.preventDefault();
             }
-        });
+        }, { passive: false });
     }
 
     handleDrop(event, targetTeam, dragData) {
@@ -211,11 +225,11 @@ class Api{
                 ? JSON.parse(event.dataTransfer.getData('text/plain'))
                 : dragData;
 
-            const teamData = targetTeam.getAttribute('data-equipo');
+        const teamData = targetTeam.getAttribute('data-equipo');
 
-            if (data.equipo === teamData && this.minutes < 1) {
-                this.nextRound();
-            }
+        if (data.equipo === teamData && this.minutes < 1) {
+            this.nextRound();
+        }
     }
 
     nextRound(){
@@ -256,7 +270,7 @@ class Api{
             };
         `;
 
-        // Create a Blob URL for the worker code
+        // Creo un blob para poder usar la API WebWorkers
         const blob = new Blob([workerCode], { type: "application/javascript" });
         const blobURL = URL.createObjectURL(blob);
 

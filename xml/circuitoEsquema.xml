@@ -25,11 +25,11 @@
         </referencias>
 
         <fotos>
-            <foto>F1Desktop/multimedia/imagenes/jeddah_noche.jpg</foto>
+            <foto>/F1Desktop/multimedia/imagenes/jeddah_noche.jpg</foto>
         </fotos>
 
         <videos>
-            <video>F1Desktop/multimedia/videos/george-russell-victoria-sao-paulo.mp4</video>
+            <video>/F1Desktop/multimedia/videos/george-russell-victoria-sao-paulo.mp4</video>
         </videos>
 
         <coordenadas_inicio>

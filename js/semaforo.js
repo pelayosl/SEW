@@ -82,19 +82,19 @@ class Semaforo {
         $("form").attr("name", "resultado");
         $("form").append(`<p>
             <label for='nombre'>Nombre:</label>
-            <input type='text' name='nombre'/>
+            <input id='nombre' type='text' name='nombre'/>
         </p>`);
         $("form").append(`<p>
             <label for='apellidos'>Apellidos:</label>
-            <input type='text' name='apellidos'/>
+            <input id='apellidos' type='text' name='apellidos'/>
         </p>`);
         $("form").append(`<p>
             <label for='difficulty'>Dificultad:</label>
-            <input type='text' name='difficulty' readonly='true' value='${this.difficulty}'/>
+            <input id='difficulty' type='text' name='difficulty' readonly value='${this.difficulty}'/>
         </p>`);
         $("form").append(`<p>
             <label for='tiempo_reaccion'>Tiempo de reacción:</label>
-            <input type='text' name='tiempo_reaccion' readonly='true' value='${this.millis}'/>
+            <input id='tiempo_reaccion' type='text' name='tiempo_reaccion' readonly value='${this.millis}'/>
         </p>`);
         $("form").append(`<input type='submit'  value='Enviar'/>`)
  

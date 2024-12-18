@@ -47,7 +47,7 @@ class Pais {
         var unidades = "metric";
         var idioma = "es";
         
-        var url = `http://api.openweathermap.org/data/2.5/forecast?lat=${this.latitud}&lon=${this.longitud}&appid=${apikey}`+
+        var url = `https://api.openweathermap.org/data/2.5/forecast?lat=${this.latitud}&lon=${this.longitud}&appid=${apikey}`+
         `&units=${unidades}&lang=${idioma}&mode=${tipo}`;
 
         $.ajax({

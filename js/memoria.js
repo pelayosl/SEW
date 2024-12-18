@@ -4,51 +4,51 @@ class Memoria {
         this.elements = [
             {
                 "element": "RedBull",
-                "source": "https://upload.wikimedia.org/wikipedia/de/c/c4/Red_Bull_Racing_logo.svg"
+                "source": "multimedia/imagenes/redbull.svg"
             },
             {
                 "element": "RedBull",
-                "source": "https://upload.wikimedia.org/wikipedia/de/c/c4/Red_Bull_Racing_logo.svg"
+                "source": "multimedia/imagenes/redbull.svg"
             },
             {
                 "element": "McLaren",
-                "source": "https://upload.wikimedia.org/wikipedia/en/6/66/McLaren_Racing_logo.svg"
+                "source": "multimedia/imagenes/mclaren.svg"
             },
             {
                 "element": "McLaren",
-                "source": "https://upload.wikimedia.org/wikipedia/en/6/66/McLaren_Racing_logo.svg"
+                "source": "multimedia/imagenes/mclaren.svg"
             },
             {
                 "element": "Alpine",
-                "source": "https://upload.wikimedia.org/wikipedia/fr/b/b7/Alpine_F1_Team_2021_Logo.svg"
+                "source": "multimedia/imagenes/alpine.svg"
             },
             {
                 "element": "Alpine",
-                "source": "https://upload.wikimedia.org/wikipedia/fr/b/b7/Alpine_F1_Team_2021_Logo.svg"
+                "source": "multimedia/imagenes/alpine.svg"
             },
             {
                 "element": "AstonMartin",
-                "source": "https://upload.wikimedia.org/wikipedia/fr/7/72/Aston_Martin_Aramco_Cognizant_F1.svg"
+                "source": "multimedia/imagenes/astonmartin.svg"
             },
             {
                 "element": "AstonMartin",
-                "source": "https://upload.wikimedia.org/wikipedia/fr/7/72/Aston_Martin_Aramco_Cognizant_F1.svg"
+                "source": "multimedia/imagenes/astonmartin.svg"
             },
             {
                 "element": "Ferrari",
-                "source": "https://upload.wikimedia.org/wikipedia/de/c/c0/Scuderia_Ferrari_Logo.svg"
+                "source": "multimedia/imagenes/ferrari.svg"
             },
             {
                 "element": "Ferrari",
-                "source": "https://upload.wikimedia.org/wikipedia/de/c/c0/Scuderia_Ferrari_Logo.svg"
+                "source": "multimedia/imagenes/ferrari.svg"
             },
             {
                 "element": "Mercedes",
-                "source": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg"
+                "source": "multimedia/imagenes/mercedes.svg"
             },
             {
                 "element": "Mercedes",
-                "source": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg"
+                "source": "multimedia/imagenes/mercedes.svg"
             },
         ];
 
@@ -86,7 +86,7 @@ class Memoria {
             this.firstCard.dataset.state = 'hidden';
             this.secondCard.dataset.state = 'hidden';
             this.resetBoard();
-        }, 1000);
+        }, 650);
     }
 
     resetBoard() {
@@ -106,21 +106,20 @@ class Memoria {
             this.firstCard.dataset.state = 'revealed';
             this.secondCard.dataset.state = 'revealed';
             this.resetBoard();
-        }, 1000);
+        }, 200);
     }
 
     createElements() {
 
-        var section = document.getElementsByTagName('section')[0];
+        var section = document.getElementsByTagName('section')[1];
 
         for(var i = 0 ; i < this.elements.length ; i++) {
 
             var article = document.createElement('article');
             article.setAttribute('data-element', this.elements[i].element);
-
-            var heading = document.createElement('h3');
+            var heading = document.createElement('h5');
             heading.textContent = 'Tarjeta de memoria';
-
+            
             var image = document.createElement('img');
             image.src = this.elements[i].source;
             image.alt = this.elements[i].element;
@@ -165,12 +164,12 @@ class Memoria {
         }
         let p = document.createElement('p');
         p.textContent = `\tHaz click en cada carta para desvelarla y encontrar parejas.
+        Cada carta contiene una imagen del logo de un equipo de Fórmula 1.
         Si fallas, ambas cartas se volverán a ocultar.
         Encuentra todas las parejas para terminar el juego.`;
-        // Get the first article element
-        const section = main.querySelector('section');
+        
+        const section = main.querySelector('section:nth-of-type(2)');
 
-        // Insert the <p> before the first <article>, if it exists
         main.insertBefore(p, section);
     }
 

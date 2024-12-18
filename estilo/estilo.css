@@ -1,32 +1,35 @@
 /*Pelayo Sierra Lobo, UO294217*/
 
-body { /*Especifidad 001*/
+/*Especifidad 001*/
+body{ 
     font-family: "Trebuchet MS", sans-serif;
     color: #595959;
     background-color: transparent;
     font-size: 1em;
     margin: 0;
-  }
+}
+
 
 body p{ /*Especifidad 002*/
   font-size: 1em;
 }
 
+/*Especifidad 001*/
 main, aside { /*Especifidad 001*/
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
 }
 
 h2{ /*Especifidad 001*/
   /*Hereda el background-color del body*/
   color: #1F575C;
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 
 body h3{ /*Especifidad 002*/
   /*Hereda el background-color del body*/
   color: #1F575C;
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
 body h4 { /*Especifidad 002*/
@@ -40,34 +43,42 @@ body h5{ /*Especifidad 002*/
   font-size: 1em;
 }
 
-main a, main nav a { /* Especificidad: 002 */
-  color: #294A0D;
+/* Especificidad: 002 */
+main a, main nav a { /* Especificidad: 003 */
+  color: #31570F;
   /*Hereda el background-color del body*/
  }
 
- main nav a {
+ /* Especifidad 012 */
+main a:visited {
+  /*Hereda el background-color del body*/
+  color:#1F575C;
+}
+
+ /* Especificidad: 003 */
+main nav a {
   text-decoration: underline;
   
  }
  
 main a:focus { /* Especificidad: 012 */
-  border-bottom: 1px solid;
+  border-bottom: 0.06em solid;
   background: #BAE498;
-  /*Hereda el color de main a del body*/
+  /*Hereda el color de fuente de main a*/
  }
  
 main a:hover { /* Especificidad: 012 */
-  border-bottom: 1px solid;
+  /* Hereda el color de fuente de main a */
+  border-bottom: 0.06em solid;
   background: #CDFEAA;
-  /*Hereda el color de main a*/
  }
  
 main a:active { /* Especificidad: 012 */
   background: #294A0D;
   color: #CDFEAA;
  }
-
-header + p { /* Especificidad: 002 */
+/* Especificidad: 002 */
+header + p, header + p a { /* Especificidad: 003 */
   font-size: 0.8rem;
   color: #3a3a3a;
   font-style: italic;
@@ -76,6 +87,7 @@ header + p { /* Especificidad: 002 */
 }
 
 @media screen and (max-width: 600px) {
+  /* Especificidad: 002 */
   header + p{ /* Especifidad 002 */
     display: none;
   }
@@ -83,56 +95,69 @@ header + p { /* Especificidad: 002 */
 
 ul { /* Especifidad 001 */
   list-style-type: disc;
-  font-size: 18px;
+  font-size: 1.1rem;
 }
 
 ol { /* Especifidad 001 */
   list-style-type: upper-roman;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 dl { /* Especifidad 001 */
   background-color: #22625F;
-  padding: 10px;
+  padding: 0.6rem;
   color: white;
 }
 
 dt { /* Especifidad 001 */
- font-size: 18px;
+ font-size: 1.13rem;
  /* color: white; lo hereda de dl */
 }
 
 video { /* Especifidad 001 */
-  width:100%;
+  width:50%;
   height:auto;
  }
 
 table { /* Especifidad 001 */
   table-layout: fixed; /* comportamiento predecible */
-  width: 100%; /* llena cualquier contenedor en la que se ubique */
+  width: 90%; /* llena cualquier contenedor en la que se ubique */
   border-collapse: collapse;
-  border: 3px solid #22625F;
+  border: 0.18rem solid #22625F;
+}
+
+img { /*Especifidad 001*/
+  width: 50%;
+}
+
+@media screen and (max-width: 700px) {
+  /* ADVERTENCIA de redefinición de width de table. 
+  Width es 50% hasta que se modifica si la pantalla es menor de 700px*/
+  /* Especificidad: 001 */
+  table{
+    width: 100%;
+  }
+  
 }
 
 caption { /* Especifidad 001 */
   /*Hereda el background-color del body*/
-  padding: 20px;
+  padding: 1.25rem;
   font-style: italic;
   color: #666;
   text-align: center;
-  letter-spacing: 1px;
 }
 
+/* Especificidad: 001 */
 th, td { /* Especifidad 001 */
-  border: 3px solid #22625F;
-  padding: 20px;  
+  border: 0.1875rem solid #22625F;
+  padding: 1.25rem;  
   text-align: center;
   overflow-wrap: break-word;   
   
 }
 
 th { /* Especifidad 001 */
-  letter-spacing: 2px;
   background-color: #22625F;
   color: white;
 }
@@ -142,18 +167,13 @@ td { /* Especifidad 001 */
   color: #0f2d2b;
 }
 
-img { /*Especifidad 001*/
-  width: 50%;
-}
 
-h3 + section > div { /*Especifidad 003*/
+
+section > div { /*Especifidad 002*/
   width: 70%;
   height: 30vw; 
 }
 
-svg { /*Especifidad 001*/
-  width: 100%;
-}
 
 button { /*Especifidad 001*/
   background-color: #22625F;
@@ -169,24 +189,17 @@ button { /*Especifidad 001*/
   cursor: pointer;
 }
 
+
 button:hover { /*Especifidad 011*/
   background-image: linear-gradient(-180deg, #22625F 0%, #22625F 100%);
 }
 
-/*Especifidad 002*/ /*Especifidad 003*/
-h5 + section, h5 + section + section{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
 article>img{ /*Especifidad 002*/
-  touch-action: none;
   width: 15vw;
 }
 
-section:nth-of-type(2)>article>img{ /*Especifidad 013*/
+section:nth-of-type(3)>article>img{ /*Especifidad 013*/
   width: 40vh;
   height: 40vh;
 }
@@ -199,8 +212,8 @@ button+p{ /*Especifidad 002*/
   text-align: center;
 }
 
-/*Especifidad 003*/ /*Especifidad 004*/
-h3 + h4 + article,h3 + h4 + article>article {
+/* Carrusel */
+p + article { /*Especifidad 002*/
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -210,18 +223,12 @@ h3 + h4 + article,h3 + h4 + article>article {
   width: 100%;
   max-width: 100vh;
   position: relative;
-  overflow: hidden; /* <===  */
+  overflow: hidden;
   border-radius: 1em;
 }
 
-h3 + h4 + article>article h3 { /*Especifidad 005*/
-  width: 100%;
-  text-align: center;
-  margin-bottom: 0.5em;
-  font-size: 2em;
-}
 
-h3 + h4 + article>article>img { /*Especifidad 005*/
+p + article>img { /*Especifidad 003*/
   width: 100%;
   max-width: 100vh;
   height: 60vh;
@@ -231,7 +238,7 @@ h3 + h4 + article>article>img { /*Especifidad 005*/
   border-radius: 0.5em;
 }
 
-h3 + h4 + article>article>button { /*Especifidad 005*/
+p + article>button { /*Especifidad 003*/
   position: absolute;
   width: 2em;
   height: 2em;
@@ -246,16 +253,16 @@ h3 + h4 + article>article>button { /*Especifidad 005*/
   align-items:center;
   justify-content: center;
 }
-h3 + h4 + article>article>button:active { /*Especifidad 015*/
+p + article>button:active { /*Especifidad 013*/
   transform: scale(1.1);
 }
 
-h3 + h4 + article>article>button:nth-of-type(2) { /*Especifidad 015*/
+p + article>button:nth-of-type(2) { /*Especifidad 013*/
   top: 50%;
   left: 2%;
 }
 
-h3 + h4 + article>article>button:nth-of-type(1) { /*Especifidad 015*/
+p + article>button:nth-of-type(1) { /*Especifidad 013*/
   top: 50%;
   right: 2%;
 }

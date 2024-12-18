@@ -18,6 +18,7 @@
 		crossorigin="anonymous">
 	</script>
 	<script src="js/circuito.js"></script>
+	
 </head>
 
 <body>
@@ -38,8 +39,11 @@
 	<p>Estás en: <a href="index.html">Inicio</a> | Circuito</p>
 	<main>
 		<h2>Circuito</h2>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoSW46rRKo8lL6dOAAAaatHAhtwCDlKKo&loading=async"></script>
 		<script>circuito = new Circuito();</script>
-		<p><input type="file" onchange="circuito.readInputFile(this.files);"></p>
+		<p>
+		<label><input type="file" onchange="circuito.readInputFile(this.files);"></label>
+		</p>
 	</main>
 </body>
 </html>

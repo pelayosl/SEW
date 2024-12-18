@@ -1,6 +1,14 @@
 /*Pelayo Sierra Lobo, UO294217*/
 
-section {
+/* Especifidad 013 */
+main nav a:first-of-type{
+    color: #ffed87;
+    font-weight: bold;
+    /* Hereda el background-color del body de main nav a en layout.css */
+}
+
+/* Especifidad 011 */
+section:nth-of-type(2) {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem; /*1rem*/
@@ -8,14 +16,20 @@ section {
     padding: 0.5rem;
 }
 
+/* Especifidad 011 */
+section:first-of-type{
+    padding-bottom: 1rem;
+}
 
-section > h2 {
+/* Especifidad 012 */
+section:nth-of-type(2)>h4 {
     flex-basis: 100%;
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
+/* Especifidad 001 */
 article {
     flex: 0 1 calc(25% - 1rem);
     min-width: calc(25% - 1rem);
@@ -23,6 +37,7 @@ article {
     aspect-ratio: 2/3;
     max-height: 30vh;
     background-color: #ffed87;
+    /* Hereda el color de fuente del body*/
     border-radius: 1rem;
     cursor: pointer;
     display: flex;
@@ -32,74 +47,101 @@ article {
     box-sizing: border-box;
     transform-style: preserve-3d;
     transition: transform .5s;
-    border: 0.2em solid #143837;
+    border: 0.4em solid #143837;
 }
 
-article[data-state="flip"],
-article[data-state="revealed"] {
+article[data-state="flip"], /* Especifidad 011 */
+article[data-state="revealed"] /* Especifidad 011 */ {
     transform: rotateY(180deg);
     border-width: 0.5em;
 }
 
-article[data-element="RedBull"][data-state="flip"],
-article[data-element="RedBull"][data-state="revealed"] {
-    border-color: #0b099e; /* Red for RedBull */
+article[data-element="RedBull"][data-state="flip"] /* Especifidad 021 */,
+article[data-element="RedBull"][data-state="revealed"] /* Especifidad 021 */ {
+    border-color: #120fe8; /* Red for RedBull */
+    background-color: #e5e5ff
+    /* Hereda el color de fuente del body*/
 }
 
-article[data-element="McLaren"][data-state="flip"],
-article[data-element="McLaren"][data-state="revealed"] {
+article[data-element="McLaren"][data-state="flip"] /* Especifidad 021 */,
+article[data-element="McLaren"][data-state="revealed"] /* Especifidad 021 */{
     border-color: #f08400; /* Orange for McLaren */
+    background-color: #fbdebb
+    /* Hereda el color de fuente del body*/
 }
 
-article[data-element="Alpine"][data-state="flip"],
-article[data-element="Alpine"][data-state="revealed"] {
+article[data-element="Alpine"][data-state="flip"] /* Especifidad 021 */,
+article[data-element="Alpine"][data-state="revealed"] /* Especifidad 021 */{
     border-color: #cf06c5; /* Blue for Alpine */
+    background-color: #fbe2fa;
+    /* Hereda el color de fuente del body*/
 }
 
-article[data-element="AstonMartin"][data-state="flip"],
-article[data-element="AstonMartin"][data-state="revealed"] {
-    border-color: #00d463; /* Green for Aston Martin */
+article[data-element="AstonMartin"][data-state="flip"], /* Especifidad 021 */
+article[data-element="AstonMartin"][data-state="revealed"] /* Especifidad 021 */{
+    border-color: #14b701; /* Green for Aston Martin */
+    background-color: #e3ffe0;
+    /* Hereda el color de fuente del body*/
 }
 
-article[data-element="Ferrari"][data-state="flip"],
-article[data-element="Ferrari"][data-state="revealed"] {
+article[data-element="Ferrari"][data-state="flip"], /* Especifidad 021 */
+article[data-element="Ferrari"][data-state="revealed"] /* Especifidad 021 */ {
     border-color: #ff0000; /* Red for Ferrari */
+    background-color: #fad4d4;
+    /* Hereda el color de fuente del body*/
 }
 
-article[data-element="Mercedes"][data-state="flip"],
-article[data-element="Mercedes"][data-state="revealed"] {
+article[data-element="Mercedes"][data-state="flip"], /* Especifidad 021 */
+article[data-element="Mercedes"][data-state="revealed"] /* Especifidad 021 */ {
     border-color: #286b71; /* Cyan for Mercedes */
+    background-color: #d0f3f6;
+    /* Hereda el color de fuente del body*/
 }
 
-article img {
+article img { /* Especifidad 002 */
     width: 90%; /* 70, 70*/
     height: 90%;
     transform: rotateY(180deg);
     position: absolute;
 }
 
-article h3 {
+article h5 { /* Especifidad 002 */
     background-color: transparent;
     font-size: 0.9rem;
     color: black;
 }
 
-@media screen and (max-width: 480px) {
-    article h3 {
+@media screen and (max-width: 700px) {
+    article h5 { /* Especifidad 002 */
+        /*ADVERTENCIA: Redefinición de font size*/
         font-size: 0.6rem;
         text-align: center;
     }
+
+    /* ADVERTENCIA
+       Redefinición de los valores de border:
+       border-top-color, border-right-color, border-left-color, border-bottom-color
+       border-top-style, border-right-style, border-left-style, border-bottom-style
+       border-top-width, border-right-width, border-left-width, border-bottom-width
+       
+       Esto se usa para redefinir los bordes en dispositivos de pantallas pequeñas
+       según recomendaciones recibidas durante las pruebas de usabilidad
+    */
+    article{ /* Especifidad 001 */
+        border: 0.2em solid #143837;
+    }
 }
 
-article img,
-article h3 {
+article img, /* Especifidad 002 */
+article h5 { /* Especifidad 002 */
     backface-visibility: hidden;
 }
 
-button+p {
+button+p { /* Especifidad 002 */
     font-size: 1.2rem;
     text-align: left;
     color: #595959;
     border: 0.2rem solid #595959;
     padding: 1em;
+    /* Hereda el color de fuente del body*/
   }

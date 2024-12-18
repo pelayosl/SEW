@@ -1,0 +1,477 @@
+<!DOCTYPE HTML>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+	<meta name="author" content="Pelayo Sierra Lobo">
+	<meta name="description" content="Información sobre el circuito del próximo evento">
+	<meta name="keywords" content="F1, F1 Desktop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>F1 Desktop: Circuito</title>
+	<link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+	<link rel="stylesheet" type="text/css" href="estilo/layout.css">
+	<link rel="icon" href="multimedia/imagenes/favicon.ico" sizes="16x16" type="image/vnd.microsoft.icon">
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+	</script><style type="text/css" id="operaUserStyle"></style>
+	<script src="js/circuito.js"></script>
+	
+<style type="text/css"></style><script src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/main.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/map.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/marker.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/geometry.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/poly.js"></script></head>
+
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+		<h1><a href="index.html" title="F1 Desktop: Inicio">F1 Desktop</a></h1>
+		<nav>
+			<a href="index.html" title="F1 Desktop: Inicio">Inicio</a>
+			<a href="piloto.html" title="F1 Desktop: Piloto">Piloto</a>
+			<a href="noticias.html" title="F1 Desktop: Noticias">Noticias</a>
+			<a href="calendario.html" title="F1 Desktop: Calendario">Calendario</a>
+			<a href="meteorologia.html" title="F1 Desktop: Meteorología">Meteorología</a>
+			<a href="circuito.html" class="active" title="F1 Desktop: Circuito">Circuito</a>
+			<a href="viajes.php" title="F1 Desktop: Viajes">Viajes</a>
+			<a href="juegos.html" title="F1 Desktop: Juegos">Juegos</a>
+		</nav>
+	</header>
+	<p>Estás en: <a href="index.html">Inicio</a> | Circuito</p>
+	<main>
+		<h2>Circuito</h2>
+		<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoSW46rRKo8lL6dOAAAaatHAhtwCDlKKo&amp;loading=async"></script>
+		<script>circuito = new Circuito();</script>
+		<p><input type="file" onchange="circuito.readInputFile(this.files);"></p>
+	<h3>Circuito: Jeddah Corniche</h3>
+                <p>Longitud: 6.175 km</p>
+                <p>Anchura: 12 m</p>
+            
+            <p>Fecha: 2024-03-09</p>
+            <p>Hora: 18:00:00.000</p>
+            <p>Vueltas: 50</p>
+        
+                <p>Localidad: Jeddah</p>
+                <p>País: Arabia Saudí</p>
+            <h4>Referencias:</h4><ul><li><a href="https://es.wikipedia.org/wiki/Circuito_de_la_Corniche_de_Yeda">es.wikipedia.org</a></li><li><a href="https://www.milermeter.com/?r=7570909">www.milermeter.com</a></li><li><a href="https://www.gdecarli.it/index.htm">www.gdecarli.it</a></li></ul><h4>Fotos:</h4><img src="/F1Desktop/multimedia/imagenes/jeddah_noche.jpg" alt="Imagen del circuito de Jeddah Corniche"><h4>Videos:</h4><video controls="" preload="auto">
+				                  <source src="multimedia/videos/jeddah_video.mp4" type="video/mp4">
+			                      </video><h4>Coordenadas iniciales del circuito</h4>
+                            <p>Latitud: 21.632583333333333</p>
+                            <p>Longitud: 39.10452777777778</p>
+                            <p>Altitud: 2 m</p>
+                <h4>Tramos del circuito:</h4><table>
+                    <thead>
+                        <tr>
+                            <th id="sector" scope="row">Sector</th>
+                            <th id="distancia" scope="row">Distancia</th>
+                            <th id="coordenadas" scope="row">Coordenadas Finales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td headers="sector">1</td>
+                        <td headers="distancia">38.54 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'05"N</p>
+                            <p>Long: 39°06'12"E</p>
+                            <p>Alt: 2.94 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">2</td>
+                        <td headers="distancia">62.88 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'05"N</p>
+                            <p>Long: 39°06'10"E</p>
+                            <p>Alt: 2.27 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">3</td>
+                        <td headers="distancia">72.08 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'08"N</p>
+                            <p>Long: 39°06'11"E</p>
+                            <p>Alt: 2.27 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">4</td>
+                        <td headers="distancia">76.70 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'10"N</p>
+                            <p>Long: 39°06'11"E</p>
+                            <p>Alt: 2.19 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">5</td>
+                        <td headers="distancia">255.28 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'19"N</p>
+                            <p>Long: 39°06'10"E</p>
+                            <p>Alt: 2.72 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">6</td>
+                        <td headers="distancia">39.87 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'19"N</p>
+                            <p>Long: 39°06'09"E</p>
+                            <p>Alt: 3.42 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">7</td>
+                        <td headers="distancia">75.61 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'21"N</p>
+                            <p>Long: 39°06'07"E</p>
+                            <p>Alt: 3.50 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">8</td>
+                        <td headers="distancia">124.27 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'25"N</p>
+                            <p>Long: 39°06'07"E</p>
+                            <p>Alt: 3.50 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">9</td>
+                        <td headers="distancia">105.05 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'28"N</p>
+                            <p>Long: 39°06'08"E</p>
+                            <p>Alt: 2.112 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">10</td>
+                        <td headers="distancia">38.83 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'29"N</p>
+                            <p>Long: 39°06'08"E</p>
+                            <p>Alt: 2.88 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">11</td>
+                        <td headers="distancia">50.81 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'30"N</p>
+                            <p>Long: 39°06'07"E</p>
+                            <p>Alt: 3.50 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">12</td>
+                        <td headers="distancia">70.55 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'32"N</p>
+                            <p>Long: 39°06'05"E</p>
+                            <p>Alt: 3.19 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">13</td>
+                        <td headers="distancia">79.25 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'35"N</p>
+                            <p>Long: 39°06'05"E</p>
+                            <p>Alt: 3.50 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">14</td>
+                        <td headers="distancia">98.5 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'37"N</p>
+                            <p>Long: 39°06'07"E</p>
+                            <p>Alt: 3.48 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">15</td>
+                        <td headers="distancia">75.32 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'39"N</p>
+                            <p>Long: 39°06'09"E</p>
+                            <p>Alt: 2.26 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">16</td>
+                        <td headers="distancia">132.63 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'43"N</p>
+                            <p>Long: 39°06'10"E</p>
+                            <p>Alt: 1.75 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">17</td>
+                        <td headers="distancia">106.13 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'46"N</p>
+                            <p>Long: 39°06'11"E</p>
+                            <p>Alt: 2.04 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">18</td>
+                        <td headers="distancia">353.39 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'58"N</p>
+                            <p>Long: 39°06'10"E</p>
+                            <p>Alt: 2.27 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">19</td>
+                        <td headers="distancia">279.83 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'55"N</p>
+                            <p>Long: 39°06'07"E</p>
+                            <p>Alt: 3.81 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">20</td>
+                        <td headers="distancia">77.82 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'53"N</p>
+                            <p>Long: 39°06'08"E</p>
+                            <p>Alt: 3.49 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">21</td>
+                        <td headers="distancia">199.57 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'47"N</p>
+                            <p>Long: 39°06'08"E</p>
+                            <p>Alt: 2.85 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">22</td>
+                        <td headers="distancia">55.76 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'45"N</p>
+                            <p>Long: 39°06'07"E</p>
+                            <p>Alt: 2.28 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">23</td>
+                        <td headers="distancia">98.64 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'42"N</p>
+                            <p>Long: 39°06'06"E</p>
+                            <p>Alt: 2.73 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">24</td>
+                        <td headers="distancia">88.77 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'40"N</p>
+                            <p>Long: 39°06'05"E</p>
+                            <p>Alt: 2.74 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">25</td>
+                        <td headers="distancia">82.20 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'38"N</p>
+                            <p>Long: 39°06'03"E</p>
+                            <p>Alt: 2.74 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">26</td>
+                        <td headers="distancia">256.11 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'30"N</p>
+                            <p>Long: 39°06'04"E</p>
+                            <p>Alt: 3.32 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">27</td>
+                        <td headers="distancia">201.87 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'24"N</p>
+                            <p>Long: 39°06'05"E</p>
+                            <p>Alt: 3.43 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">28</td>
+                        <td headers="distancia">197.18 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'18"N</p>
+                            <p>Long: 39°06'07"E</p>
+                            <p>Alt: 2.88 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">29</td>
+                        <td headers="distancia">391.6 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'06"N</p>
+                            <p>Long: 39°06'09"E</p>
+                            <p>Alt: 2.26 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">30</td>
+                        <td headers="distancia">67.44 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'04"N</p>
+                            <p>Long: 39°06'10"E</p>
+                            <p>Alt: 2.26 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">31</td>
+                        <td headers="distancia">81.9 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'02"N</p>
+                            <p>Long: 39°06'12"E</p>
+                            <p>Alt: 2.46 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">32</td>
+                        <td headers="distancia">72.03 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'00"N</p>
+                            <p>Long: 39°06'12"E</p>
+                            <p>Alt: 2.41 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">33</td>
+                        <td headers="distancia">71.35 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'57"N</p>
+                            <p>Long: 39°06'12"E</p>
+                            <p>Alt: 2.88 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">34</td>
+                        <td headers="distancia">138.59 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'53"N</p>
+                            <p>Long: 39°06'10"E</p>
+                            <p>Alt: 2.60 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">35</td>
+                        <td headers="distancia">203.65 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'47"N</p>
+                            <p>Long: 39°06'09"E</p>
+                            <p>Alt: 2.88 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">37</td>
+                        <td headers="distancia">161.04 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'42"N</p>
+                            <p>Long: 39°06'10"E</p>
+                            <p>Alt: 2.78 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">38</td>
+                        <td headers="distancia">320.93 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'34"N</p>
+                            <p>Long: 39°06'17"E</p>
+                            <p>Alt: 2.88 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">39</td>
+                        <td headers="distancia">135.62 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'31"N</p>
+                            <p>Long: 39°06'21"E</p>
+                            <p>Alt: 2.88 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">40</td>
+                        <td headers="distancia">104.99 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'32"N</p>
+                            <p>Long: 39°06'23"E</p>
+                            <p>Alt: 2.55 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">41</td>
+                        <td headers="distancia">423.28 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°37'46"N</p>
+                            <p>Long: 39°06'20"E</p>
+                            <p>Alt: 3.57 m</p>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td headers="sector">43</td>
+                        <td headers="distancia">591.23 m</td>
+                        <td headers="coordenadas">
+                            <p>Lat: 21°38'04"N</p>
+                            <p>Long: 39°06'13"E</p>
+                            <p>Alt: 2.34 m</p>
+                        </td>
+                    </tr>
+                </tbody>
+                </table><section><h3>Mapa dinámico</h3><div><div style="height: 100%; width: 100%;"></div></div></section><h3>Altimetría del circuito</h3><img src="blob:http://localhost/e4b5a438-0b1c-4ece-9358-855b1c98d34d" alt="Imagen de altimetría del circuito"></main>
+
+</body></html>

@@ -34,36 +34,6 @@ CREATE TABLE `registro` (
   `tiempo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `registro`
---
-
-INSERT INTO `registro` (`nombre`, `apellidos`, `nivel`, `tiempo`) VALUES
-('Pelayo', 'Sierra Lobo', 1, 309),
-('Pelayo', 'Sierra Lobo', 1, 348),
-('Juan', 'Juanez', 1, 333),
-('Juan', 'Juanez', 1, 333),
-('Pepe', 'Peponcio', 3, 363),
-('Marcos', 'Losada', 0, 236),
-('Pelape', 'Pelape', 0, 363),
-('Marcos', 'Losada', 1, 281),
-('Pelayo', 'Sierra Lobo', 2, 327),
-('Dani', 'El Menda', 1, 311),
-('Arthur', 'Morgan', 2, 301),
-('Rogelio', 'Álvarez', 1, 292),
-('Pelayo', 'Sierra Lobo', 1, 300),
-('Pelayo', 'Sierra Lobo', 1, 384),
-('Pelayo', 'Sierra Lobo', 1, 335),
-('aaa', 'aaaa', 0, 320),
-('dsasa', 'dsadsads', 2, 304),
-('sad', 'dsadsa', 2, 328),
-('asdf', 'sadfg', 3, 265),
-('Pelayo', 'Sierra Lobo', 2, 265),
-('Pelayo', 'Sierra Lobo', 2, 270),
-('Pelayo', 'Sierra Lobo', 2, 300),
-('dsadasdsa', 'dsadsadsadsa', 1, 294);
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

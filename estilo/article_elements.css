@@ -1,4 +1,4 @@
-section {
+section { /* Especifidad 001 */
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -8,7 +8,7 @@ section {
 }
 
 
-article {
+article { /* Especifidad 001 */
     flex: 0 0 calc(20% - 1rem);
     width: 100%;
     background-color: #f3f3f3;
@@ -24,23 +24,26 @@ article {
     flex-direction: column;
 }
 
-article:hover {
+article:hover { /* Especifidad 011 */
     box-shadow: 0.5em 0.5em #9c9c9c;
     transform: scale(1.009);
 }
 
-article h4 {
+article h4 { /* Especifidad 002 */
     font-size: 1.5em;
     
 }
 
-article>img{
-    background: #304140;
+article>img{ /* Especifidad 002 */
+    /* Hereda el color de fuente de article */
+    background: #828282;
     border-radius: 3rem;
 }
 
 @media (max-width: 768px) {
-    article {
+    article { /* Especifidad 001 */
+        /* ADVERTENCIA: Redefinición de flex-direction
+        Se pasa de row a column para dispositivos pequeños */
         flex-direction: column;
         max-width: 100%;
     }

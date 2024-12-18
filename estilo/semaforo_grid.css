@@ -1,7 +1,7 @@
-main {
+main { /* Especifidad 001 */
   width: 90vw;
-  max-width: 600px;
-  margin: 20px auto;
+  max-width: 37.5rem;
+  margin: 1.25rem auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 1fr 1fr;
@@ -9,28 +9,38 @@ main {
   justify-items: center;
 }
 
-h2 {
+section nav a:nth-of-type(2){ /* Especifidad 013 */
+  /* Hereda el background-color del body de main nav a en layout.css */
+  color: #ffed87;
+  font-weight: bold;
+}
+section nav{ /* Especifidad 002 */
+  padding-left: 0.5em;
+}
+
+h2 { /* Especifidad 001 */
   grid-column: 1 / -1;
   text-align: center;
 }
 
-div {
+div { /* Especifidad 001 */
   background-color: #000A;
-  border: 5px solid black;
-  width: clamp(40px, 15vw, 120px);
+  /* Hereda el color de fuente del body de estilo.css */
+  border: 0.312rem solid black;
+  width: clamp(2.5rem, 15vw, 7.5rem);
   aspect-ratio: 1;
   border-radius: 50%;
 }
 
-button {
+button { /* Especifidad 001 */
   height: clamp(5vh, 10vw, 10vh);
 }
 
-button:first-of-type {
+button:first-of-type { /* Especifidad 011 */
   grid-column: 2 / span 1;
 }
 
-button:nth-of-type(2) {
+button:nth-of-type(2) {/* Especifidad 011 */
   grid-column: 3 / span 1;
 }
 
@@ -40,37 +50,39 @@ button:nth-of-type(2) {
   }
 
   @keyframes out {
-    from {background-color: rgb(197, 18, 18);}
-    to {background-color: #000A;}
+    from {background-color: rgb(197, 18, 18);} /*ADVERTENCIA: Redefinición de background-color */
+    /* ADVERTENCIA: Hereda el color de fuente del body de estilo.css */
+    to {background-color: #000A;} /*ADVERTENCIA: Redefinición de background-color */
+    /* ADVERTENCIA: Hereda el color de fuente del body de estilo.css */
   }
 
-  .unload div {
+  .unload div { /* Especifidad 011 */
     animation-name: out;
     animation-duration: 0.1s;
     animation-fill-mode: forwards;
   }
 
-  .load div:first-of-type {
+  .load div:first-of-type { /* Especifidad 021 */
     animation-name: fill;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
   }
 
-  .load div:nth-of-type(2) {
+  .load div:nth-of-type(2) { /* Especifidad 021 */
     animation-name: fill;
     animation-duration: 0.5s;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
   }
 
-  .load div:nth-of-type(3) {
+  .load div:nth-of-type(3) { /* Especifidad 021 */
     animation-name: fill;
     animation-duration: 0.5s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
   }
 
-  .load div:nth-of-type(4) {
+  .load div:nth-of-type(4) { /* Especifidad 021 */
     animation-name: fill;
     animation-duration: 0.5s;
     animation-delay: 1.5s;

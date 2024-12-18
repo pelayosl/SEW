@@ -45,9 +45,9 @@ class Circuito{
 
                     $("main").append('<h3>Altimetría del circuito</h3>');
                     var image = document.createElement('img');
-                    image.src = texto;
+                    image.src = URL.createObjectURL(new Blob([texto], {type: 'image/svg+xml'}));;
                     image.alt = "Imagen de altimetría del circuito";
-                    $("main").append(texto);
+                    $("main").append(image);
                 }.bind(this);      
                 lector.readAsText(archivo);
             }
@@ -86,7 +86,7 @@ class Circuito{
         if (referencias.length > 0) {
             var refList = '<h4>Referencias:</h4><ul>';
             referencias.forEach(ref => {
-                refList += `<li><a href="${ref.textContent}">${ref.textContent}</a></li>`;
+                refList += `<li><a href="${ref.textContent}">${new URL(ref.textContent).hostname}</a></li>`;
             });
             refList += '</ul>'
             $("main").append(refList);
@@ -96,14 +96,17 @@ class Circuito{
         if (fotos.length > 0) {
             $("main").append('<h4>Fotos:</h4>');
             fotos.forEach(foto => {
-                $("main").append(`<p>Ruta: ${foto.textContent}</p>`);
+                $("main").append(`<img src=${foto.textContent} alt="Imagen del circuito de Jeddah Corniche"/>`);
             });
         }
         var videos = circuito.querySelectorAll('videos video');
         if (videos.length > 0) {
             ($("main")).append('<h4>Videos:</h4>');
             videos.forEach(video => {
-                $("main").append(`<p>Ruta: ${video.textContent}</p>`);
+                
+                $("main").append(`<video controls preload="auto">
+				                  <source src="multimedia/videos/jeddah_video.mp4" type="video/mp4">
+			                      </video>`);
             });
         }
         var coordIniciales = circuito.querySelector('coordenadas_inicio');
@@ -114,9 +117,9 @@ class Circuito{
 
         if(coordIniciales){
             $("main").append(`<h4>Coordenadas iniciales del circuito</h4>
-                            Latitud: ${this.lat}<br>
-                            Longitud: ${this.long}<br>
-                            Altitud: ${this.getElementText(coordIniciales, 'altitud')} m
+                            <p>Latitud: ${this.lat}</p>
+                            <p>Longitud: ${this.long}</p>
+                            <p>Altitud: ${this.getElementText(coordIniciales, 'altitud')} m</p>
                 `);
         }
         var tramos = circuito.querySelectorAll('tramos tramo');
@@ -141,9 +144,9 @@ class Circuito{
                         <td headers="sector">${tramo.getAttribute('sector')}</td>
                         <td headers="distancia">${tramo.getAttribute('distancia')} m</td>
                         <td headers="coordenadas">
-                            Lat: ${this.getElementText(coordFinales, 'latitud')}<br>
-                            Long: ${this.getElementText(coordFinales, 'longitud')}<br>
-                            Alt: ${this.getElementText(coordFinales, 'altitud')} m
+                            <p>Lat: ${this.getElementText(coordFinales, 'latitud')}</p>
+                            <p>Long: ${this.getElementText(coordFinales, 'longitud')}</p>
+                            <p>Alt: ${this.getElementText(coordFinales, 'altitud')} m</p>
                         </td>
                     </tr>
                 `);
@@ -172,13 +175,6 @@ class Circuito{
 
         polyline.setMap(this.map);
 
-        // latLongArray.forEach((position) => {
-        //     var marker = new google.maps.Marker({
-        //         position,
-        //         map: this.map,
-        //     });
-        // });
-
     }
 
     getElementText(parent, tagName) {
@@ -191,11 +187,11 @@ class Circuito{
         if (!window.google) {
             const apiKey = 'AIzaSyBoSW46rRKo8lL6dOAAAaatHAhtwCDlKKo';
             const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`;
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async`;
             script.async = true;
             script.defer = true;
             document.head.appendChild(script);
-
+    
             script.onload = () => this.createMap();
         } else {
             this.createMap();
@@ -203,21 +199,27 @@ class Circuito{
     }
 
     createMap() {
-        $("main").append("<h3>Mapa dinámico</h3>");
-
-        if (!document.getElementById('map')) {
-            const mapDiv = document.createElement('div');
-            mapDiv.id = 'map';
-            document.querySelector('main').appendChild(mapDiv);
-        }
-
+        var mapSection = document.createElement('section');
+        var h3 = document.createElement('h3');
+        h3.textContent ="Mapa dinámico";
+        mapSection.appendChild(h3);
+        var mapDiv = document.createElement('div');
+        
+        mapSection.appendChild(mapDiv);
+        document.querySelector('main').appendChild(mapSection);
+        
         const mapOptions = {
             center: { lat: this.lat, lng: this.long },
-            zoom: 13,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-
-        this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        
+        this.map = new google.maps.Map(mapDiv, mapOptions);
+        this.marker = new google.maps.Marker({
+            position: { lat: this.lat, lng: this.long },
+            map: this.map,
+            title: 'Tu posición'
+        });
 
     }
 

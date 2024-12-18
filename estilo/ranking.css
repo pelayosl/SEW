@@ -1,0 +1,81 @@
+
+main section:nth-of-type(1), /* Especifidad 012 */
+main section:nth-of-type(2) { /* Especifidad 012 */
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7vw;
+    justify-items: center;
+}
+
+section:first-of-type h2{ /* Especifidad 012 */
+    margin: 0.3rem;
+}
+
+section nav a:nth-of-type(4){ /* Especifidad 013 */
+    color: #ffed87;
+    font-weight: bold;
+    /* Hereda el background-color del body de main nav a en layout.css */
+}
+
+article { /* Especifidad 001 */
+    flex: 0 1 calc(25% - 1rem);
+    min-width: 40vh;
+    width: calc(25% - 1rem);
+    max-height: 35vh;
+    background-color: #f3f3f3;
+    /* Hereda el color de fuente del body de estilo.css */
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 0.2em solid #143837;
+}
+
+article:hover { /* Especifidad 011 */
+    transform: scale(1.05);
+}
+
+table { /* Especifidad 001 */
+    width: 50%;
+}
+
+h3{ /* Especifidad 001 */
+    width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    /*
+    ADVERTENCIA: Redefinición de width de table
+    */
+    table { /* Especifidad 012 */
+        width: 100%;
+    }
+}
+
+input[type="submit"]{ /* Especifidad 011 */
+    background-color: #22625F;
+    background-image: linear-gradient(#389a95, #22625F);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    font-size: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    border: 0;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+ul { /* Especifidad 001 */
+    list-style-type: disc;
+    font-size: 1em;
+  }
+
+
+
+
