@@ -451,7 +451,11 @@ $ranking->checkUserInput();
                     Insertar datos (csv): 
                     <input type="file" name="csv" required>
                 </label>
-                <input type="submit" name="import" value="Insertar datos">
+				<label>
+					Exportar datos(csv):
+					<input type="submit" name="import" value="Insertar datos">
+				</label>
+                
         </form>
 		
 		<?php $ranking->displayInformation() ?>

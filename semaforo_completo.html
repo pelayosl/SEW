@@ -40,10 +40,22 @@
 				<a href="php/ranking.php" title="Accede al ranking de pilotos de F1">Ranking de pilotos</a>
             </nav>
         </section>
-	<main>
+	<main class="">
 		
-	<h2>Semáforo</h2><div></div><div></div><div></div><div></div><button>Arranque</button><button>Reacción</button></main>
-	<aside><h3>Top 10 mejores tiempos para nivel  3</h3><ol><li>FWEFEW EFWFEWFWE: 0.195 s</li><li>asdf sadfg: 0.265 s</li><li>AA aa: 0.279 s</li><li>Espagueti Carbonara: 0.312 s</li><li>Papardelle Boletus: 0.33 s</li><li>Dani Carbonara: 0.338 s</li><li>Dani Carbonara: 0.338 s</li><li>Dani El Menda: 0.345 s</li><li>Dani El Menda: 0.345 s</li><li>Dani El Menda: 0.345 s</li></ol></aside>
+	<h2>Semáforo</h2><div></div><div></div><div></div><div></div><button>Arranque</button><button disabled="">Reacción</button></main>
+	<aside><form method="post" action="#" name="resultado"><h3>Resultado</h3><p>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" type="text" name="nombre">
+        </p><p>
+            <label for="apellidos">Apellidos:</label>
+            <input id="apellidos" type="text" name="apellidos">
+        </p><p>
+            <label for="difficulty">Dificultad:</label>
+            <input id="difficulty" type="text" name="difficulty" readonly="" value="1">
+        </p><p>
+            <label for="tiempo_reaccion">Tiempo de reacción:</label>
+            <input id="tiempo_reaccion" type="text" name="tiempo_reaccion" readonly="" value="267">
+        </p><input type="submit" value="Enviar"></form></aside>
     <script defer="" src="js/semaforo.js"></script>
 
 </body></html>
