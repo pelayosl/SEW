@@ -41,9 +41,9 @@
 		<h2>Circuito</h2>
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoSW46rRKo8lL6dOAAAaatHAhtwCDlKKo&loading=async"></script>
 		<script>circuito = new Circuito();</script>
-		<p>
-		<label><input type="file" onchange="circuito.readInputFile(this.files);"></label>
-		</p>
+		
+		<label for="input_file">Introduce archivos xml, kml y svg. Recuerda cargar el xml antes del kml.</label>
+		<p><input id="input_file" type="file" onchange="circuito.readInputFile(this.files);"></p>
 	</main>
 </body>
 </html>
